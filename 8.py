@@ -5,12 +5,12 @@ count = 0
 array.sort()
 
 for k in range(n):
-    find = array[k]
+    find = array[k]     # 찾고자 하는 값
     i = 0
     j = n - 1
     while i < j:
         if array[i] + array[j] == find:
-            if i != k and j != k:
+            if i != k and j != k:       # 자기 자신은 좋은수 만들기 포함 X
                 count += 1
                 break
             elif i == k:
