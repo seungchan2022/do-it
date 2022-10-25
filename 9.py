@@ -26,3 +26,6 @@ for i in range(s - p):
         count += 1
 
 print(count)
+
+# https://dibrary.tistory.com/164
+# 23 ~ 24 위 링크 아래 그림 이해
