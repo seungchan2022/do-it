@@ -13,7 +13,7 @@ array.sort()
 
 for i in range(n):
     # 정렬 전 index - 정렬 후 index 계산의 최대값 저장 
-    rsult = max(rseult, array[i][1] - i)
+    result = max(result, array[i][1] - i)
 
 print(max + 1)
 
