@@ -9,13 +9,13 @@ for i in range(n):
     array.append((int(input()), i))
 
 result = 0
-array.sort()
+sort_array = sorted(array)
 
 for i in range(n):
     # 정렬 전 index - 정렬 후 index 계산의 최대값 저장 
-    result = max(result, array[i][1] - i)
+    result = max(result, sort_array[i][1] - i)
 
-print(max + 1)
+print(result + 1)
 
 """
 버블 정렬의 swap이 한 번도 일어나지 않은 루프가 언제 인지 알아내는 문제
