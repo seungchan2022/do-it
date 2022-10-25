@@ -8,13 +8,12 @@ for i in range(n):
     # 정렬 기준을 고려하여 (데이터, index)형태로 저장
     array.append((int(input()), i))
 
-max = 0
+result = 0
 array.sort()
 
 for i in range(n):
     # 정렬 전 index - 정렬 후 index 계산의 최대값 저장 
-    if max < array[i][1] - i:
-        max = array[i][1] - i
+    rsult = max(rseult, array[i][1] - i)
 
 print(max + 1)
 
