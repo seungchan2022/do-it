@@ -12,5 +12,11 @@ for i in range(len(a) -1):
         a[i], a[max] = a[max], a[i]
 
 print(''.join(a))
-# for i in range(len(a)):
-#   print(a[i])
+
+----------------------------------------------------------
+n = list(input())
+
+n.sort(reverse=True)
+
+for i in n:
+    print(i, end='')
