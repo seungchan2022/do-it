@@ -10,8 +10,8 @@ def merge_sort(start, end):
         merge_sort(start, mid)
         merge_sort(mid + 1, end)
         
-        a = start
-        b = mid + 1
+        a = start       # 앞쪽 그룹의 시작 index
+        b = mid + 1     # 뒤쪽 그룹의 시작 index
         tmp = []    # 비교하면서 정렬할 용도의 배열
         while a <= mid and b <= end:
             if array[a] <= array[b]:
