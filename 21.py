@@ -22,7 +22,8 @@ def merge_sort(start, end):
                 b += 1
                 # count += mid - 들어갈 index + 1
                 count += mid - a + 1    # swap 했을때 개수 추가
-                
+
+        # 한쪽 배열이 다 정렬 되었을 때
         if a <= mid:
             tmp += array[a:mid + 1]
         if b <= end:
