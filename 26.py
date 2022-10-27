@@ -9,7 +9,7 @@ for _ in range(m):
     graph[a].append(b)
     graph[b].append(a)
 
-for i in range(1, n + 1):
+for i in range(n + 1):
     graph[i].sort()     # 번호가 작은 노드 부터 방문하기 위해 정렬
 
 # dfs
@@ -27,7 +27,7 @@ dfs(graph, v, visited)
 from collections import deque
 
 def bfs(graph, v, visited):
-    q = deque([v])        # q = deque() / q.append(v), q = deque(v) (X)
+    q = deque([v])        
     visited[v] = True
     while q:
         now = q.popleft()
