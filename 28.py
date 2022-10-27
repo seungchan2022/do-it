@@ -7,7 +7,7 @@ graph = [[] for _ in range(n + 1)]
 
 for _ in range(n):
     data = list(map(int, input().split()))
-    for j in range(1, len(data) - 2, 2):
+    for j in range(1, len(data) - 1, 2):
         graph[data[0]].append((data[j], data[j + 1]))
 
 def bfs(start):
