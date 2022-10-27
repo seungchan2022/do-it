@@ -5,7 +5,7 @@ sys.setrecursionlimit(10000)    # 런타임에러를 일으키지 않기 위해
 input = sys.stdin.readline
 
 n, m = map(int, input().split())    # 노드, 간선
-graph = [[] * (n + 1) for _ in range(n + 1)]
+graph = [[] for _ in range(n + 1)]
 visited = [False] * (n + 1)
 count = 0   # dfs실행 횟수 = 연결 요소 개수
 
