@@ -13,7 +13,7 @@ for i in range(n):
 # visited = [-1] * (n + 1)
 
 def bfs(start):
-    # 탐색을 여러 번 수행할 때 이렇게 함수 안에 넣지 않고 밖에서 선언 하면 탐색 할때 마다 방문 리스트를 선언 해주어야 한다
+    # 탐색을 여러 번 수행할 때 이렇게 함수 안에 넣지 않고 밖에서 선언 하면 탐색 할때 마다 방문 리스트를 선언 해주어야 한다(13,34)
     visited = [-1] * (n + 1)    # 방문 여부: -1 이면 방문 X
     q = deque()
     q.append(start)
@@ -61,7 +61,7 @@ visited[1] = 0
 
 for i in range(n):
     data = list(map(int, input().split()))
-    for j in range(1, len(data) - 2, 2):
+    for j in range(1, len(data) - 1, 2):
         graph[data[0]].append((data[j], data[j + 1]))
 
 def dfs(x, y):
