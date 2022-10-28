@@ -3,32 +3,35 @@
 from collections import deque
 
 n = int(input())
-graph = [[] for _ in range(n + 1)]
 
-for _ in range(n):
+graph = [[] for _ in range(n + 1)]
+for i in range(n):
     data = list(map(int, input().split()))
     for j in range(1, len(data) - 1, 2):
         graph[data[0]].append((data[j], data[j + 1]))
 
+# visited = [-1] * (n + 1)
+
 def bfs(start):
-    visit = [-1] * (n + 1)  # 방문여부, -1 이면 방문 X
+    # 탐색을 여러 번 수행할 때 이렇게 함수 안에 넣지 않고 밖에서 선언 하면 탐색 할때 마다 방문 리스트를 선언 해주어야 한다
+    visited = [-1] * (n + 1)    # 방문 여부: -1 이면 방문 X
     q = deque()
     q.append(start)
-    visit[start] = 0
-    answer = [0, 0]     # 거리가 가장 먼 트리의 지름과 정점 저장하는 배열 (거리, 노드)
+    visited[start] = 0
+    answer = [0, 0]     # 거리가 가장 먼 트리의 지름과 노드 저장(거리, 노드)
     while q:
         v = q.popleft()
         for e, d in graph[v]:
-            if visit[e] == -1:  # 아직 방문하지 않았다면
-                visit[e] = visit[v] + d     # 방문 처리
+            if visited[e] == -1:    # 아직 방문하지 않았다면
+                visited[e] = visited[v] + d     # 방문 처리
                 q.append(e)
                 # 현재 노드로부터 가장 거리가 먼 노드의 번호로 거리 갱신
-                if visit[e] > answer[0]:
-                    answer = visit[e], e
-                
+                if visited[e] > answer[0]:      # 최댓값 구하기
+                    answer = visited[e], e      # (거리, 노드)
     return answer
 
-distance, node = bfs(1)     # 아무 노드나 설정(여기서는 1번 노드로 설정)
+distance, node = bfs(1)     # 아무 노드나 설정
+# visited = [-1] * (n + 1) 
 distance, node = bfs(node)
 print(distance)
 
