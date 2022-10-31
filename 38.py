@@ -5,7 +5,7 @@ import math
 a, b = map(int, input().split())
 
 # 소수가 아닌 수를 0으로 표현
-array = [0] * (10000001)
+array = [0] * (10000001)    # 10^14의 제곱근인 10^7까지 반복
 
 for i in range(2, len(array)):
     array[i] = i
@@ -18,7 +18,7 @@ for i in range(2, int(math.sqrt(len(array)) + 1)):
 
 count = 0
 
-for i in range(2, b + 1):
+for i in range(2, len(array)):
     if array[i] != 0:
         temp = array[i]
         # n제곱한 값이 변수 표현 점위를 넘을 수 있어 이항정리로 해결
