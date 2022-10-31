@@ -11,7 +11,7 @@ for i in range(2, int(math.sqrt(max)) + 1):
     pow = i * i     # 제곱 수
     start_index = int(min / pow)    # 최솟값 / 제곱수
     # 단, 나머지가 있는 경우 1을 더해 min보다 큰 제곱수에서 시작하도록 설정
-    if min / pow != 0:
+    if min % pow != 0:
         start_index += 1
     # 제곱수의 배수 형태로 탐색
     for j in range(start_index, int(max / pow) + 1):
