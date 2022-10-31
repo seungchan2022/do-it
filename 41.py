@@ -8,7 +8,7 @@ n = int(input())
 result = n
 
 for p in range(2, int(math.sqrt(n)) + 1):   # 제곱근까지만 진행
-    if n % p == 0:  # p(현재 값)가 소수이면
+    if n % p == 0:  # p(현재 값)가 소인수이면
         result -= result / p    # 결과값 갱신
         while n % p == 0:   # 2^7 * 11 이라면 11만 남김
             n /= p
