@@ -5,6 +5,7 @@ import math
 m, n = map(int, input().split())    # m ~ n 까지의 모든 수에 대해 소수 판별
 # 처음에는 모든 수가 소수(True)인 것으로 초기화(0, 1 제외)
 array = [True for _ in range(n + 1)]
+array[1] = False
 
 # 에라토스테네스의 체 알고리즘 수행
 # 2부터 n의 제곱급 까지의 모든 수를 확인하며
