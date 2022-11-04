@@ -1,52 +1,48 @@
 # 1043
 
-import sys
-input = sys.stdin.readline
-sys.setrecursionlimit(100000)
-
-def find_parent(parent, x):
+# 특정 원소가 속한 집합 찾기
+def find(parent, x):
     if parent[x] != x:
-        parent[x] = find_parent(parent, parent[x])
+        parent[x] = find(parent, parent[x])
     return parent[x]
 
-def union_parent(parent, a, b):
-    a = find_parent(parent, a)
-    b = find_parent(parent, b)
+# 두 원소 합치기
+def union(parent, a, b):
+    a = find(parent, a)
+    b = find(parent, b)
     if a < b:
         parent[b] = a
     else:
         parent[a] = b
 
 
-n, m = map(int, input().split())    # 사람수, 파티수
-true = list(map(int, input().split()))  # 진실을 아는 사람 데이터
-t = true[0]     # 진실을 아는 사람 수
+n, m = map(int, input().split())    # n:사람수, m:파티수
+true = list(map(int, input().split())) # 진실을 아는 사람수, 그 사람의 대한 번호
+t = true[0] # 진실을 아는 사람수
 del true[0]
 result = 0
 
-party = []
+party = []  # 각 파티에 대한 정보 담을 리스트
 for i in range(m):
     party.append(list(map(int, input().split())))
-    del party[i][0]
+    del party[i][0]     # 각 파티에 첫 번째원소(사람수) 삭제
 
-parent = [0] * (n + 1)
-for i in range(1, n + 1):
-    parent[i] = i
+parent = [i for i in range(n + 1)]
 
 for i in range(m):
     a = party[i][0]     # i번째 파티의 1번째 사람
-    for j in range(1, len(party[i])):   # i번째 파티의 사람 수만큼 반복
-        union_parent(parent, a, party[i][j])    # 각 파티에 참여한 사람들을 1개의 그룹으로 만들기
+    for j in range(1, len(party[i])):   # i번째 파티의 사람 수 만큼 반복(len(party[i]): 각각의 파티의 길이)
+        union(parent, a, party[i][j])   # 각 파티에 참여한 사람들을 1개의 그룹으로 만들기
 
 for i in range(m):
     check = True
-    a = party[i][0]     
-    for j in range(len(true)):  # 진실을 아는 사람들의 수만큼 반복
-        # 각 파티의 루트 노드와 진실을 아는 사람들의 루트 노드가 같다면 과장할 수 X
-        if find_parent(parent, a) == find_parent(parent, true[j]):
+    a = party[i][0]
+    for j in range(len(true)):    # 진실을 아는 사람 수 만큼 반복
+        # 각 파티의 루트 노드와 진실을 아는 사람들의 루트 노드가 같다면 과장 할 수 X
+        if find(parent, a) == find(parent, true[j]):
             check = False
             break
-    # 모든 다른 경우
+    # 모두 다른 경우
     if check:
         result += 1
 
