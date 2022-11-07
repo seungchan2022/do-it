@@ -19,7 +19,7 @@ data = list(map(int ,input().split()))
 distance[start] = data[start]
 
 # 양수 사이클이 전파되도록 충분히 큰 수로 반복
-for i in range(n + 101):
+for i in range(n + 51):     # 에지의 업데이트를 n - 1번이 아닌 충분히 큰수(n <= 50)만큼 추가로 돌리면서 갱신
     for j in range(m):
         cur = edges[j][0]
         next_node = edges[j][1]
@@ -29,10 +29,10 @@ for i in range(n + 101):
         elif distance[cur] == INF:  # 출발 노드가 양수 사이클에 연결된 노드 이면
             distance[next_node] = INF   # 종료 노드를 양수 사이클에 연결된 노드로 갱신
         # 더 많은 돈을 벌 수 있는 새로운 경로가 있는 경우 값 갱신
-            # 종료 노드의 값 < 출발 노드의 값 + 도착 도시에서의 수입 - 간선 비용
+        # 종료 노드의 값 < 출발 노드의 값 + 도착 도시에서의 수입 - 간선 비용
         elif distance[next_node] < distance[cur] + data[next_node] - cost:
             distance[next_node] = distance[cur] + data[next_node] - cost
-            if i >= n - 1:
+            if i >= n - 1:  # ?
                 distance[next_node] = INF
                 
 
