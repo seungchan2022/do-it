@@ -34,3 +34,20 @@ for i in range(1, n + 1):
         answer = i
 
 print(answer)
+
+
+
+"""
+25 ~ 36
+(두가지 다 알아두기)
+result = []
+
+for a in range(1, n + 1):
+    temp = 0
+    for b in range(1, n + 1):
+        temp += graph[a][b]
+    result.append((temp, a))
+        
+result = sorted(result, key=lambda x: (x[0], x[1]))
+print(result[0][1])
+"""
