@@ -106,3 +106,36 @@ if check_all_connected():
     print(result)
 else:
     print(-1)
+    
+
+"""
+구현, BFS, DFS, Union-Find
+
+1. 입력을 받으면서 1(땅)인 부분을 land에 append
+
+2. 각 땅(land리스트)를 돌면서 BFS(find_land)로 연결된 땅에 구역 번호를 매겨준다, num_island : 구역의 개수
+
+    - start에 각 땅의 좌표와 구역의 번호를 넣어준다 (x좌표, y좌표, 구역 번호)
+
+3. island : 구역의 부모리스트 초기값은 자기자신으로 설정
+
+4. make_bridge() : start의 값을 가지고 DFS(make_straight)로 다리를 이을 수 있는지 체크
+
+    - make_straight() : 바다이면 temp에 다리의 길이를 넣어주고 dfs, 땅이고 길이가 2이상이면 bridge에 append
+
+5. bridge : 연결할 수 있는 다리의 정보 (다리의 길이, 시작구역번호, 도착구역번호)
+
+6. bridge의 다리길이가 짧은 순서로 정렬
+
+7. Union-Find
+
+    - island를 이용해서 각 구역의 부모가 다르면 result에 다리길이를 더해주고 Union
+
+8. check_all_connected() : 모든 구역의 부모가 같은지 확인
+
+    - 같으면 모두 연결됐다는 뜻이므로 print(result)
+
+    - 다르면 print(-1)
+"""
+
+# https://2hs-rti.tistory.com/entry/%EB%B0%B1%EC%A4%80-17472%EB%B2%88-%EB%8B%A4%EB%A6%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0-2-%ED%8C%8C%EC%9D%B4%EC%8D%AC
