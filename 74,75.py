@@ -10,7 +10,7 @@ LOG = 21
 n = int(input())
 parent = [[0] * LOG for _ in range(n + 1)]    # 부모 노드 정보
 d = [0] * (n + 1)   # 각 노드까지의 깊이
-c = [0] * (n + 1)   # 각 노드의 깊이가 계산 되었는지 여부
+c = [False] * (n + 1)   # 각 노드의 깊이가 계산 되었는지 여부
 graph = [[] for _ in range(n + 1)]
 
 for _ in range(n - 1):
