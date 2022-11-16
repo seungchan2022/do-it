@@ -43,3 +43,5 @@ if n > 1:
             -> i번째 이전의 원소를 제거한 연속합 값 + 현재 원소 i값
 
 """
+
+# https://baby-ohgu.tistory.com/17
