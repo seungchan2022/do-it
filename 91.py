@@ -18,3 +18,21 @@ for i in range(n):
         result = max(result, dp[i][j])
 
 print(result * result)
+
+-----------------------------------------------------
+
+n, m = map(int, input().split())
+
+dp = []
+for _ in range(n):
+    dp.append(list(map(int, input())))
+
+result = 0
+
+for i in range(n):
+    for j in range(m):
+        if dp[i][j] == 1 and i > 0 and j > 0 :
+            dp[i][j] = min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]) + dp[i][j]
+        result = max(result, dp[i][j])
+
+print(result * result)
