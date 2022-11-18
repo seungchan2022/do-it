@@ -25,7 +25,7 @@ if n > 1:
     print(result)
 
 else:
-    print(dp[0][0])
+    print(max(array))
 
 
 """
