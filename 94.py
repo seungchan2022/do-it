@@ -8,7 +8,6 @@ n = int(input())
 data = []   # 행렬 저장 리스트
 
 dp = [[-1] * (n + 1) for _ in range(n + 1)]
-data.append((0, 0))         # 이해 X
 
 for _ in range(n):
     r, c = map(int, input().split())
@@ -28,7 +27,7 @@ def execute(s, e):   # s: 시작 행렬 index, e: 종료 행렬 index
     dp[s][e] = result   # 가장 최솟값 저장
     return dp[s][e]
 
-print(execute(1, n))
+print(execute(0, n - 1))
 
 """
 dp의 특징 중 하나가 부분문제를 구해 큰 문제를 해결하는 것이다.
