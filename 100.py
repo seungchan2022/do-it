@@ -22,3 +22,25 @@ for i in range(len(array) - 1):
 
 result = abs(a - b) / 2
 print(round(result, 1))
+
+
+----------------------------------------------
+
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+
+array = []
+for _ in range(n):
+    x, y = map(int, input().split())
+    array.append((x, y))
+
+array.append(array[0])
+
+result = 0
+for i in range(n):
+    # 0과 두점
+    result += (array[i][0] * array[i + 1][1]) - (array[i + 1][0] * array[i][1])
+
+print(round(abs(result/ 2), 1))
