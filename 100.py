@@ -44,3 +44,5 @@ for i in range(n):
     result += (array[i][0] * array[i + 1][1]) - (array[i + 1][0] * array[i][1])
 
 print(round(abs(result/ 2), 1))
+
+# https://ko.wikihow.com/%EB%8B%A4%EA%B0%81%ED%98%95-%EB%84%93%EC%9D%B4-%EA%B5%AC%ED%95%98%EA%B8%B0
